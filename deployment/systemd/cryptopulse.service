@@ -1,0 +1,19 @@
+[Unit]
+Description=CryptoPulse Binance WebSocket Data Collector
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=adm-mcsc
+WorkingDirectory=/home/adm-mcsc/cryptopulse-streaming
+ExecStart=/home/adm-mcsc/binance-venv/bin/python -u /home/adm-mcsc/cryptopulse-streaming/producer/binance_collector.py
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=15
+MemoryMax=256M
+CPUQuota=25%
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
