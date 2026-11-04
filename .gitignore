@@ -1,0 +1,19 @@
+# Collected market data
+data/
+*.jsonl
+
+# Python environments
+venv/
+.venv/
+binance-venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Environment variables and secrets
+.env
+.env.*
