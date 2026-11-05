@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cryptopulse.local/schemas/crypto-trade-v1.json",
+  "title": "CryptoPulse Binance BTCUSDT Aggregated Trade",
+  "description": "Schema for normalized Binance BTCUSDT aggTrade events produced by the CryptoPulse collector.",
+  "type": "object",
+  "properties": {
+    "event_type": {
+      "type": "string",
+      "description": "Binance event type."
+    },
+    "symbol": {
+      "type": "string",
+      "const": "BTCUSDT",
+      "description": "Trading pair."
+    },
+    "trade_id": {
+      "type": "integer",
+      "description": "Binance aggregate trade ID."
+    },
+    "event_time": {
+      "type": "integer",
+      "description": "Binance event timestamp in Unix milliseconds."
+    },
+    "event_time_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Same Binance event timestamp represented as an ISO 8601 UTC timestamp."
+    },
+    "price": {
+      "type": "string",
+      "description": "Trade price as provided by Binance and preserved as a string by the collector."
+    },
+    "quantity": {
+      "type": "string",
+      "description": "Aggregated trade quantity as provided by Binance and preserved as a string by the collector."
+    },
+    "first_trade_id": {
+      "type": "integer",
+      "description": "First individual trade ID included in the aggregate trade."
+    },
+    "last_trade_id": {
+      "type": "integer",
+      "description": "Last individual trade ID included in the aggregate trade."
+    },
+    "trade_time": {
+      "type": "integer",
+      "description": "Binance trade timestamp in Unix milliseconds."
+    },
+    "buyer_is_maker": {
+      "type": "boolean",
+      "description": "Indicates whether the buyer was the market maker."
+    }
+  },
+  "required": [
+    "event_type",
+    "symbol",
+    "trade_id",
+    "event_time",
+    "event_time_utc",
+    "price",
+    "quantity",
+    "first_trade_id",
+    "last_trade_id",
+    "trade_time",
+    "buyer_is_maker"
+  ],
+  "additionalProperties": false
+}
